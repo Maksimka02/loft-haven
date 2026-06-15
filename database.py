@@ -1,8 +1,13 @@
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-SQLALCHEMY_DATABASE_URL = "sqlite:///./loft_store.db"
+# Создаём папку для базы данных, если её нет
+os.makedirs("data", exist_ok=True)
+
+# База данных будет храниться в папке data
+SQLALCHEMY_DATABASE_URL = "sqlite:///./data/loft_store.db"
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL,
